@@ -1,7 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IPagination } from './models/IPagination';
-import { IProduct } from './models/IProduct';
 
 @Component({
   selector: 'app-root',
@@ -10,19 +7,13 @@ import { IProduct } from './models/IProduct';
 })
 export class AppComponent implements OnInit {
   title = 'E-Ticaret';
-  products: IProduct[] = [];
+  // products: IProduct[] = [];
 
-  constructor(private http : HttpClient){
+  constructor(){
     
   }
 
   ngOnInit(): void{
-    this.http.get<IPagination>('https://localhost:44378/api/products').subscribe(response=>{
-          
-      this.products = response.data;
-
-    },error=>{
-      console.log(error);
-    });
+    
   }
 }
